@@ -1,0 +1,46 @@
+.course-card {
+    width: 380px;
+    /* height: 80px; */
+    position: relative;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.course-card__labels {
+    display: flex;
+    color: white;
+    text-align: center;
+}
+
+.course-card__labels div {
+    height: 24px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.course-card__labels .semester {
+    width: 40px;
+    background-color: #2185D0;
+}
+
+.course-card__labels .category {
+    padding: 0 8px;
+    background-color: #21BA45;
+}
+
+.course-card__text {
+    font-size: 14px;
+    padding-bottom: 2px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.course-card__icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+}

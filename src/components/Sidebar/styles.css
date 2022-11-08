@@ -1,0 +1,25 @@
+.sidebar {
+    width: 400px;
+    height: 100vh;
+    padding: 10px;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    position: relative;
+}
+
+.schools-modal {
+    position: absolute;
+    top: 90px;
+    left: 0;
+
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
