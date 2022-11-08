@@ -1,0 +1,19 @@
+@import '/src/scss/global';
+
+.container {
+  width: 135px;
+  height: 37px;
+  background: $pink;
+  border-radius: 5px;
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  &_text {
+    font-family: $open-sans;
+    color: $white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+  }
+}
