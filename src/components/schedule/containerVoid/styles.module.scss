@@ -1,0 +1,11 @@
+@import '/src/scss/global';
+
+.container {
+  width: 135px;
+  height: 37px;
+  background: $white;
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  border: 1px solid red;
+}
