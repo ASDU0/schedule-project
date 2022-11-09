@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-const Schools = ({ data, filter }) => {
+const Schools = ({ data, filter, onClick }) => {
   return (
     <section className='card__schools'>
       {
@@ -13,7 +13,11 @@ const Schools = ({ data, filter }) => {
           })
           .map((school, index) => {
             return (
-              <div className='card__school' key={index} onClick={() => alert('Click')} >
+              <div
+                className='card__school'
+                key={index}
+                onClick={() => onClick(school.name)}
+              >
                 <div className='card__img'>
                   <img src={`${school.logo}`}
                     onError={(e) => {
