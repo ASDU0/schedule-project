@@ -49,13 +49,6 @@
       &_capsSab {
         width: 162px;
         height: 100%;
-        &_text {
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 30px;
-          text-align: center;
-        }
       }
     }
     &_lineTime {
@@ -94,7 +87,7 @@
             width: 151.14285714285714285714285714286px;
             border-right: 1px solid $gray;
           }
-          &_courseSat{
+          &_courseSat {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -103,6 +96,10 @@
             width: 151.14285714285714285714285714286px;
           }
         }
+      }
+      &_capsEnd {
+        display: flex;
+        flex-direction: row;
       }
     }
     &_top {

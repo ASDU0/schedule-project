@@ -1,27 +1,10 @@
 import { courses } from '../../data/courses';
+import { days } from '../../data/days';
+import { hours } from '../../data/hours';
 import { ContainerSchedule } from './containerSchedule/ContainerSchedule';
-import { ContainerVoid } from './containerVoid/ContainerVoid';
 import styles from './styles.module.scss';
 
 export const ScheduleBorder = () => {
-  const hours = [
-    '7:00 - 8:00',
-    '8:00 - 9:00',
-    '9:00 - 10:00',
-    '10:00 - 11:00',
-    '11:00 - 12:00',
-    '12:00 - 13:00',
-    '13:00 - 14:00',
-    '14:00 - 15:00',
-    '15:00 - 16:00',
-    '16:00 - 17:00',
-    '17:00 - 18:00',
-    '18:00 - 19:00',
-    '19:00 - 20:00',
-    '20:00 - 21:00',
-  ];
-
-  const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
   return (
     <div className={styles['container']}>
       <div className={styles['container_schedule']}>
@@ -32,22 +15,31 @@ export const ScheduleBorder = () => {
               Horario
             </h1>
           </div>
-          {days.map((value, key) => (
-            <div key={key} className={styles['container_schedule_header_caps']}>
+          {days.map((value) => (
+            <div
+              key={value}
+              className={
+                value === 'Sábado'
+                  ? styles['container_schedule_header_capsSab']
+                  : styles['container_schedule_header_caps']
+              }
+            >
               <h1 className={styles['container_schedule_header_caps_text']}>
                 {value}
               </h1>
             </div>
           ))}
-          <div className={styles['container_schedule_header_capsSab']}>
-            <h1 className={styles['container_schedule_header_capsSab_text']}>
-              Sábado
-            </h1>
-          </div>
         </div>
         <div className={styles['container_schedule_lineTime']}>
           {hours.map((daysVal, key) => (
-            <div className={styles['container_schedule_lineTime_caps']}>
+            <div
+              key={daysVal}
+              className={
+                daysVal === '20:00 - 21:00'
+                  ? styles['container_schedule_lineTime_capsEnd']
+                  : styles['container_schedule_lineTime_caps']
+              }
+            >
               <div className={styles['container_schedule_lineTime_caps_text']}>
                 <h1
                   className={
@@ -58,402 +50,116 @@ export const ScheduleBorder = () => {
                 </h1>
               </div>
               <div className={styles['container_schedule_lineTime_caps_mini']}>
-                {Object.keys(courses[0].days).map((value) =>
+                {Object.keys(courses[0].days).map((value, keyInd) =>
                   value === 'monday' ? (
-                    <>
-                      <div
-                        className={
-                          styles['container_schedule_lineTime_caps_mini_course']
-                        }
-                      >
-                        {courses.map((value, key) =>
-                          value.days.monday.includes(`${daysVal}`) ? (
-                            <div>
-                              <ContainerSchedule
-                                title={value.name}
-                                backgroundColor={value.color}
-                              />
-                            </div>
-                          ) : null
-                        )}
-                      </div>
-                    </>
-                  ) : value === 'tuesday' ? (
-                    <>
-                      <div
-                        className={
-                          styles['container_schedule_lineTime_caps_mini_course']
-                        }
-                      >
-                        {courses.map((value, key) =>
-                          value.days.tuesday.includes(`${daysVal}`) ? (
-                            <div>
-                              <ContainerSchedule
-                                title={value.name}
-                                backgroundColor={value.color}
-                              />
-                            </div>
-                          ) : null
-                        )}
-                      </div>
-                    </>
-                  ) : value === 'wednesday' ? (
-                    <>
-                      <div
-                        className={
-                          styles['container_schedule_lineTime_caps_mini_course']
-                        }
-                      >
-                        {courses.map((value, key) =>
-                          value.days.wednesday.includes(`${daysVal}`) ? (
-                            <div>
-                              <ContainerSchedule
-                                title={value.name}
-                                backgroundColor={value.color}
-                              />
-                            </div>
-                          ) : null
-                        )}
-                      </div>
-                    </>
-                  ) : value === 'thursday' ? (
-                    <>
-                      <div
-                        className={
-                          styles['container_schedule_lineTime_caps_mini_course']
-                        }
-                      >
-                        {courses.map((value, key) =>
-                          value.days.thursday.includes(`${daysVal}`) ? (
-                            <div>
-                              <ContainerSchedule
-                                title={value.name}
-                                backgroundColor={value.color}
-                              />
-                            </div>
-                          ) : null
-                        )}
-                      </div>
-                    </>
-                  ) : value === 'friday' ? (
-                    <>
-                      <div
-                        className={
-                          styles['container_schedule_lineTime_caps_mini_course']
-                        }
-                      >
-                        {courses.map((value, key) =>
-                          value.days.friday.includes(`${daysVal}`) ? (
-                            <div>
-                              <ContainerSchedule
-                                title={value.name}
-                                backgroundColor={value.color}
-                              />
-                            </div>
-                          ) : null
-                        )}
-                      </div>
-                    </>
-                  ) : value === 'saturday' ? (
-                    <>
-                      <div
-                        className={
-                          styles['container_schedule_lineTime_caps_mini_courseSat']
-                        }
-                      >
-                        {courses.map((value, key) =>
-                          value.days.saturday.includes(`${daysVal}`) ? (
-                            <div>
-                              <ContainerSchedule
-                                title={value.name}
-                                backgroundColor={value.color}
-                              />
-                            </div>
-                          ) : null
-                        )}
-                      </div>
-                    </>
-                  ) : (
-                    <ContainerVoid
+                    <div
+                      key={keyInd}
                       className={
                         styles['container_schedule_lineTime_caps_mini_course']
                       }
-                    />
-                  )
+                    >
+                      {courses.map((value, keyIndex) =>
+                        value.days.monday.includes(`${daysVal}`) ? (
+                          <ContainerSchedule
+                            key={keyIndex}
+                            title={value.name}
+                            backgroundColor={value.color}
+                          />
+                        ) : null
+                      )}
+                    </div>
+                  ) : value === 'tuesday' ? (
+                    <div
+                      key={keyInd}
+                      className={
+                        styles['container_schedule_lineTime_caps_mini_course']
+                      }
+                    >
+                      {courses.map((value, keyIndex) =>
+                        value.days.tuesday.includes(`${daysVal}`) ? (
+                          <ContainerSchedule
+                            key={keyIndex}
+                            title={value.name}
+                            backgroundColor={value.color}
+                          />
+                        ) : null
+                      )}
+                    </div>
+                  ) : value === 'wednesday' ? (
+                    <div
+                      key={keyInd}
+                      className={
+                        styles['container_schedule_lineTime_caps_mini_course']
+                      }
+                    >
+                      {courses.map((value, keyIndex) =>
+                        value.days.wednesday.includes(`${daysVal}`) ? (
+                          <ContainerSchedule
+                            key={keyIndex}
+                            title={value.name}
+                            backgroundColor={value.color}
+                          />
+                        ) : null
+                      )}
+                    </div>
+                  ) : value === 'thursday' ? (
+                    <div
+                      key={keyInd}
+                      className={
+                        styles['container_schedule_lineTime_caps_mini_course']
+                      }
+                    >
+                      {courses.map((value, keyIndex) =>
+                        value.days.thursday.includes(`${daysVal}`) ? (
+                          <ContainerSchedule
+                            key={keyIndex}
+                            title={value.name}
+                            backgroundColor={value.color}
+                          />
+                        ) : null
+                      )}
+                    </div>
+                  ) : value === 'friday' ? (
+                    <div
+                      key={keyInd}
+                      className={
+                        styles['container_schedule_lineTime_caps_mini_course']
+                      }
+                    >
+                      {courses.map((value, keyIndex) =>
+                        value.days.friday.includes(`${daysVal}`) ? (
+                          <ContainerSchedule
+                            key={keyIndex}
+                            title={value.name}
+                            backgroundColor={value.color}
+                          />
+                        ) : null
+                      )}
+                    </div>
+                  ) : value === 'saturday' ? (
+                    <div
+                      key={keyInd}
+                      className={
+                        styles[
+                          'container_schedule_lineTime_caps_mini_courseSat'
+                        ]
+                      }
+                    >
+                      {courses.map((value, keyIndex) =>
+                        value.days.saturday.includes(`${daysVal}`) ? (
+                          <ContainerSchedule
+                            key={keyIndex}
+                            title={value.name}
+                            backgroundColor={value.color}
+                          />
+                        ) : null
+                      )}
+                    </div>
+                  ) : null
                 )}
               </div>
             </div>
           ))}
-
-          {/* <div className={styles['container_schedule_lineTime_caps']}>
-            <div className={styles['container_schedule_lineTime_caps_text']}>
-              <h1
-                className={styles['container_schedule_lineTime_caps_text_hour']}
-              >
-                7:00 - 8:00
-              </h1>
-            </div>
-            <div className={styles['container_schedule_lineTime_caps_mini']}>
-              {Object.keys(courses[0].days).map((value) =>
-                value === 'monday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.monday.includes('7:00 - 8:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'tuesday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.tuesday.includes('7:00 - 8:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'wednesday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.wednesday.includes('7:00 - 8:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'thursday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.thursday.includes('7:00 - 8:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'friday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.friday.includes('7:00 - 8:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'saturday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.saturday.includes('7:00 - 8:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  <ContainerVoid
-                    className={
-                      styles['container_schedule_lineTime_caps_mini_course']
-                    }
-                  />
-                )
-              )}
-            </div>
-          </div>
-
-          <div className={styles['container_schedule_lineTime_caps']}>
-            <div className={styles['container_schedule_lineTime_caps_text']}>
-              <h1
-                className={styles['container_schedule_lineTime_caps_text_hour']}
-              >
-                8:00 - 9:00
-              </h1>
-            </div>
-            <div className={styles['container_schedule_lineTime_caps_mini']}>
-              {Object.keys(courses[0].days).map((value) =>
-                value === 'monday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.monday.includes('8:00 - 9:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'tuesday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.tuesday.includes('8:00 - 9:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'wednesday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.wednesday.includes('8:00 - 9:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'thursday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.thursday.includes('8:00 - 9:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'friday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.friday.includes('8:00 - 9:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : value === 'saturday' ? (
-                  <>
-                    <div
-                      className={
-                        styles['container_schedule_lineTime_caps_mini_course']
-                      }
-                    >
-                      {courses.map((value, key) =>
-                        value.days.saturday.includes('8:00 - 9:00') ? (
-                          <div>
-                            <ContainerSchedule
-                              title={value.name}
-                              backgroundColor={value.color}
-                            />
-                          </div>
-                        ) : null
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  <ContainerVoid
-                    className={
-                      styles['container_schedule_lineTime_caps_mini_course']
-                    }
-                  />
-                )
-              )}
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
