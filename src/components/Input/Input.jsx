@@ -1,17 +1,33 @@
-import { forwardRef } from 'react'
+import { forwardRef, useRef } from 'react'
+import { ReactComponent as DeleteIcon } from '../../assets/delete_icon.svg'
 import { ReactComponent as SearchIcon } from '../../assets/search_icon.svg'
+
 import './styles.css'
 
-const Input = forwardRef(({ title, ...props }, ref) => {
+const Input = (({ title, children, value, onClickIcon, ...props }) => {
+  const inputRef = useRef(null)
+  // console.log(inputRef.current === document.activeElement)
+
+  const handleClick = () => {
+    onClickIcon()
+    inputRef.current.focus()
+  }
   return (
     <div className='card'>
       <label className='card__title' >{title}</label>
       <div className='card__input'>
-        <SearchIcon className='card__icon' />
+        <div className='card__icon-left'>
+          {children || <SearchIcon />}
+        </div>
         <input
           {...props}
-          ref={ref}
+          value={value}
+          ref={inputRef}
         />
+        {
+          inputRef.current === document.activeElement &&
+          <DeleteIcon className='card__icon-right' onClick={handleClick} />
+        }
       </div>
     </div>
   )

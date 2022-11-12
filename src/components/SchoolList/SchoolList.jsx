@@ -11,22 +11,22 @@ const Schools = ({ data, filter, onClick }) => {
             let name = school.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
             return name.includes(filter)
           })
-          .map((school, index) => {
+          .map(({ name, logo }, index) => {
             return (
               <div
                 className='card__school'
                 key={index}
-                onClick={() => onClick(school.name)}
+                onClick={() => onClick({ id: index, name: name, img: logo })}
               >
                 <div className='card__img'>
-                  <img src={`${school.logo}`}
+                  <img src={`${logo}`}
                     onError={(e) => {
                       e.target.onerror = null
                       e.target.src = "http://at.unsaac.edu.pe/images/logo-placeholder.png"
                     }}
                   />
                 </div>
-                <span>{school.name}</span>
+                <span>{name}</span>
               </div>
             )
           })

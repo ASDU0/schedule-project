@@ -1,8 +1,10 @@
 import React from 'react'
 import { ReactComponent as TrashIcon } from '../../assets/trash_icon.svg'
+import { ReactComponent as InfoFillIcon } from '../../assets/info_icon_fill.svg'
+
 import './styles.css'
 
-const CourseCard = ({ name }) => {
+const CourseCard = ({ name, flag }) => {
   return (
     <section className='course-card'>
       <p className='course-card__text bold'>{name}</p>
@@ -15,7 +17,13 @@ const CourseCard = ({ name }) => {
           <span className='course-card__text bold'>OESS</span>
         </div>
       </div>
-      <TrashIcon className='course-card__icon' onClick={() => alert('Borrado')} />
+      {
+        flag
+          ?
+          <InfoFillIcon className='course-card__icon' />
+          :
+          <TrashIcon className='course-card__icon' onClick={() => alert('Borrado')} />
+      }
     </section>
   )
 }

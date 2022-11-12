@@ -1,4 +1,3 @@
-import React from 'react'
 import CourseCard from '../CourseCard'
 
 import './styles.css'
@@ -18,9 +17,9 @@ const CourseList = ({ data, filterValue = '', onClick, height = 530, shadow = tr
               return (
                 <div
                   key={idx}
-                  onClick={() => onClick(course)}
+                  onClick={() => shadow ? onClick(course) : null}
                 >
-                  <CourseCard name={course.name} />
+                  <CourseCard name={course.name} flag={shadow} />
                 </div>
               )
             })
