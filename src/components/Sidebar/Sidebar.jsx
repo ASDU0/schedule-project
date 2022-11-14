@@ -27,25 +27,32 @@ const Sidebar = () => {
   const [selectedCourses, setSelectedCourses] = useState([])
 
   const menuSchools = useRef('null')
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (menuSchools.current && !menuSchools.current.contains(e.target)) {
-        setShowModal({ target: "", open: false })
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-  }, [])
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     if (menuSchools.current && !menuSchools.current.contains(e.target)) {
+  //       setShowModal({ target: "", open: false })
+  //     }
+  //   }
+  //   document.addEventListener('mousedown', handleClickOutside)
+  // }, [])
   console.log(searchSchool)
   return (
     <div className='sidebar'>
-      <div ref={menuSchools}>
+      <div>
         <Input
           title='Escuela profesional'
           onFocus={() => setShowModal({ target: "schools", open: true })}
           onChange={(e) => setSearchSchool({ ...searchSchool, name: e.target.value })}
           value={searchSchool.name}
-          children={searchSchool.img && <img src={searchSchool.img} />}
+          img={searchSchool.img && <img src={searchSchool.img} />}
           onClickIcon={() => setSearchSchool({ id: '', name: '', img: '' })}
+          children={
+            <SchoolList
+              data={data}
+              filter={searchSchool.name}
+              onClick={(school) => { selectSchool(school) }}
+            />
+          }
         />
         <Input
           title='Asignatura'
@@ -53,33 +60,39 @@ const Sidebar = () => {
           onChange={(e) => setSearchCourse(e.target.value)}
           value={searchCourse}
           onClickIcon={() => setSearchCourse('')}
+          children={
+            <CourseList
+              data={allCourses}
+              filterValue={searchCourse}
+              onClick={(course) => { setSelectedCourses([...selectedCourses, course]); setSearchCourse('') }}
+              key={Math.random()}
+            />}
         />
-
-        <label className='card__title'>Mis cursos</label>
-        <CourseList
-          data={selectedCourses}
-          height={'100%'}
-          shadow={false}
-        />
-
-        <div className={`menu-${showModal.target} ${showModal.open ? 'display' : 'hidden'}`}>
-          {
-            showModal.target === "schools"
-              ? <SchoolList
-                data={data}
-                filter={searchSchool.name}
-                onClick={(school) => { selectSchool(school); setShowModal({ target: '', open: false }) }}
-              />
-              : <CourseList
-                data={allCourses}
-                filterValue={searchCourse}
-                onClick={(course) => { setSelectedCourses([...selectedCourses, course]); setSearchCourse(''); setShowModal({ target: '', open: false }) }}
-              />
-          }
-        </div>
       </div>
+      <label className='card__title'>Mis cursos</label>
+      <CourseList
+        data={selectedCourses}
+        shadow={false}
+        key={Math.random()}
+      />
     </div>
   )
 }
 
 export default Sidebar
+{/* <div className={`${showModal.target} ${showModal.open ? 'display' : 'hidden'}`}>
+  {
+    showModal.target === "schools"
+      ? <SchoolList
+        data={data}
+        filter={searchSchool.name}
+        onClick={(school) => { selectSchool(school); setShowModal({ target: '', open: false }) }}
+      />
+      : <CourseList
+        data={allCourses}
+        filterValue={searchCourse}
+        onClick={(course) => { setSelectedCourses([...selectedCourses, course]); setSearchCourse(''); setShowModal({ target: '', open: false }) }}
+        key={Math.random()}
+      />
+  }
+</div> */}

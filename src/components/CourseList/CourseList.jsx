@@ -1,11 +1,13 @@
-import CourseCard from '../CourseCard'
+import { useState } from 'react';
+import CourseCard from '../CourseCard';
 
-import './styles.css'
+import './CourseList.css';
 
-const CourseList = ({ data, filterValue = '', onClick, height = 530, shadow = true }) => {
+const CourseList = ({ data, filterValue = '', onClick, shadow = true }) => {
+
   return (
-    <section style={{ height }} className={shadow ? 'shadow' : ''} >
-      <div className='menu'>
+    <section className='card__course-list'>
+      <div className={'menu ' + (shadow ? 'shadow' : '')}>
         {
           data
             .filter((school) => {
