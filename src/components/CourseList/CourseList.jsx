@@ -3,7 +3,7 @@ import CourseCard from '../CourseCard';
 
 import './CourseList.css';
 
-const CourseList = ({ data, filterValue = '', onClick, shadow = true }) => {
+const CourseList = ({ data, filterValue = '', onClickIcon, shadow = true }) => {
 
   return (
     <section className='card__course-list'>
@@ -19,9 +19,13 @@ const CourseList = ({ data, filterValue = '', onClick, shadow = true }) => {
               return (
                 <div
                   key={idx}
-                  onClick={() => shadow ? onClick(course) : null}
                 >
-                  <CourseCard name={course.name} flag={shadow} />
+                  <CourseCard
+                    id={course.id}
+                    name={course.name}
+                    semester={course.semester}
+                    flag={shadow}
+                    onClickIcon={onClickIcon} />
                 </div>
               )
             })

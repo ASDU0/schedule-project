@@ -1,0 +1,19 @@
+.semester {
+    width: 40px;
+    text-align: center;
+    padding: 0 .5rem;
+    border-radius: 5px;
+    background-color: #2185D0;
+    color: white;
+    font-weight: 600;
+    cursor: default;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.active {
+    background-color: #2185D0;
+}
+
+.disable {
+    background-color: #D0D0D0;
+}

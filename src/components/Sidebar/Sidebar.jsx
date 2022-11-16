@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import CardSchool from '../CardSchool/CardSchool'
+import CourseCard from '../CourseCard'
 import CourseList from '../CourseList'
-import Input from '../Input'
-import SchoolList from '../SchoolList'
-
-import data from '../../schools.json'
+import Input from '../Input/Input'
+import Tag from '../Tag'
 import './styles.css'
+
+import ALLCOURSES from '../../courses.json'
+import ALLSCHOOLS from '../../schools.json'
 
 const Sidebar = () => {
   const [searchSchool, setSearchSchool] = useState({
@@ -13,86 +16,129 @@ const Sidebar = () => {
     img: '',
   })
   const [searchCourse, setSearchCourse] = useState('')
-  const [showModal, setShowModal] = useState({
-    open: false,
-    target: '',
-  })
 
   const selectSchool = ({ id, name, img }) => {
     setSearchSchool({ id, name, img })
   }
+  const SEMESTERS = ['0', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
+  const [schools, setSchools] = useState(ALLSCHOOLS)
 
-  const [schools, setSchools] = useState(data)
-  const allCourses = schools.map((school, idx) => { return { name: `Course nro ${idx}`, school: school.name } })
+  const [allCourses, setAllCourses] = useState([])
   const [selectedCourses, setSelectedCourses] = useState([])
 
-  const menuSchools = useRef('null')
-  // useEffect(() => {
-  //   const handleClickOutside = (e) => {
-  //     if (menuSchools.current && !menuSchools.current.contains(e.target)) {
-  //       setShowModal({ target: "", open: false })
-  //     }
-  //   }
-  //   document.addEventListener('mousedown', handleClickOutside)
-  // }, [])
+  const filterBySemester = () => {
+    // allCourses = allCourses.filter((course) => {
+    //   return course.semester === semester
+    // })
+  }
+  const onClickSelectSchool = (school) => {
+    //CALL API
+    setAllCourses(ALLCOURSES.filter((course) => course.career == school.id))
+    setSearchSchool(school)
+    setSelectedCourses([])
+    setSearchCourse('')
+  }
+
+  const removeCourse = (idCourse) => {
+    let courseFind = {}
+    const filterSelectedCourses = selectedCourses.filter((course) => {
+      if (course.id === idCourse) {
+        courseFind = course
+      } else {
+        return course
+      }
+    })
+
+    setSelectedCourses(filterSelectedCourses)
+    setAllCourses([...allCourses, courseFind])
+  }
+
+  const resetStates = () => {
+    setAllCourses([])
+    setSelectedCourses([])
+    setSearchCourse('')
+    setSearchSchool({
+      id: '',
+      name: '',
+      img: '',
+    })
+  }
+  const selectCourse = (course) => {
+    setSelectedCourses([...selectedCourses, course])
+    setAllCourses(allCourses.filter((c) => c.id !== course.id))
+    setSearchCourse('')
+  }
   console.log(searchSchool)
   return (
     <div className='sidebar'>
       <div>
         <Input
           title='Escuela profesional'
-          onFocus={() => setShowModal({ target: "schools", open: true })}
           onChange={(e) => setSearchSchool({ ...searchSchool, name: e.target.value })}
           value={searchSchool.name}
+          placeholder={schools.find((school) => school.id === searchSchool.id)?.name || 'Buscar escuela'}
+          filterValue={searchSchool.name}
           img={searchSchool.img && <img src={searchSchool.img} />}
-          onClickIcon={() => setSearchSchool({ id: '', name: '', img: '' })}
-          children={
-            <SchoolList
-              data={data}
-              filter={searchSchool.name}
-              onClick={(school) => { selectSchool(school) }}
-            />
-          }
+          data={schools}
+          onClickIcon={resetStates}
+          renderItem={(item, hideList) => {
+            return (
+              <CardSchool
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                logo={item.logo}
+                hideList={hideList}
+                onClick={(school) => { onClickSelectSchool(school) }}
+              />
+            )
+          }}
         />
         <Input
           title='Asignatura'
-          onFocus={() => setShowModal({ target: "courses", open: true })}
           onChange={(e) => setSearchCourse(e.target.value)}
           value={searchCourse}
+          filterValue={searchCourse}
+          data={allCourses}
           onClickIcon={() => setSearchCourse('')}
           children={
-            <CourseList
-              data={allCourses}
-              filterValue={searchCourse}
-              onClick={(course) => { setSelectedCourses([...selectedCourses, course]); setSearchCourse('') }}
-              key={Math.random()}
-            />}
+            <div
+              style={{ display: 'flex', gap: '4px', justifyContent: 'center', margin: '10px' }}
+            >
+              {
+                SEMESTERS.map((semester) =>
+                  <Tag
+                    // onClick={(value) => filterBySemester(value)}
+                    active={false}
+                    value={semester}
+                  />
+                )
+              }
+            </div >
+          }
+          renderItem={(item, hideList) => {
+            return (
+              <CourseCard
+                key={item.id}
+                name={item.name}
+                semester={item.semester}
+                hideList={hideList}
+                onClick={() => { selectCourse(item) }}
+                flag={true}
+              />
+            )
+          }}
         />
-      </div>
+      </div >
       <label className='card__title'>Mis cursos</label>
       <CourseList
         data={selectedCourses}
         shadow={false}
         key={Math.random()}
+        onClickIcon={(idCourse) => removeCourse(idCourse)}
       />
-    </div>
+    </div >
   )
 }
 
 export default Sidebar
-{/* <div className={`${showModal.target} ${showModal.open ? 'display' : 'hidden'}`}>
-  {
-    showModal.target === "schools"
-      ? <SchoolList
-        data={data}
-        filter={searchSchool.name}
-        onClick={(school) => { selectSchool(school); setShowModal({ target: '', open: false }) }}
-      />
-      : <CourseList
-        data={allCourses}
-        filterValue={searchCourse}
-        onClick={(course) => { setSelectedCourses([...selectedCourses, course]); setSearchCourse(''); setShowModal({ target: '', open: false }) }}
-        key={Math.random()}
-      />
-  }
-</div> */}

@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 import './styles.css'
 import Portal from '../Portal'
 
-const CourseCard = ({ name, flag }) => {
+const CourseCard = ({ id, name, semester, flag, hideList, onClick, onClickIcon }) => {
   const [showDetails, setShowDetails] = useState(false)
   const [coordinates, setCoordinates] = useState({ top: 0, left: 0 })
   const infoRef = useRef(null)
@@ -16,9 +16,16 @@ const CourseCard = ({ name, flag }) => {
     setShowDetails(true)
     setCoordinates({ top, left })
   }
-
+  const handleClick = () => {
+    if (flag) {
+      onClick()
+      hideList()
+    }
+  }
   return (
-    <section className='course-card'>
+    <section className='course-card'
+      onClick={handleClick}
+    >
       <div className='course-card__header'>
         <p className='course-card__text bold'>{name}</p>
         {
@@ -32,13 +39,17 @@ const CourseCard = ({ name, flag }) => {
               width={24}
             />
             :
-            <TrashIcon width={24} height={24} />
+            <TrashIcon
+              onClick={() => onClickIcon(id)}
+              width={24}
+            // height={24}
+            />
         }
       </div>
       <p className='course-card__text' >IN775</p>
       <div className='course-card__labels'>
         <div className='semester'>
-          <span className='course-card__text bold'>XIII</span>
+          <span className='course-card__text bold'>{semester}</span>
         </div>
         <div className='category'>
           <span className='course-card__text bold'>OESS</span>
@@ -61,7 +72,7 @@ const DetailsSchedule = ({ top, left }) => {
     <div
       style={{
         top: top,
-        left: left * 1.13,
+        left: left * 1.12,
       }}
       className='details-schedule'
     >

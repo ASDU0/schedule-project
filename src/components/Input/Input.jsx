@@ -4,7 +4,13 @@ import { ReactComponent as SearchIcon } from '../../assets/search_icon.svg'
 
 import './Input.css'
 
-const Input = (({ title, children, img, value, onClickIcon, ...props }) => {
+const compareString = (value, filter) => {
+  filter = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  return value.includes(filter)
+}
+
+const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, data, renderItem, children, ...props }) => {
   const inputRef = useRef(null)
   const listRef = useRef(null)
 
@@ -26,6 +32,12 @@ const Input = (({ title, children, img, value, onClickIcon, ...props }) => {
   const handleClick = () => {
     onClickIcon()
     inputRef.current.focus()
+  }
+
+  const hideList = () => {
+    if (focused) {
+      onBlur()
+    }
   }
   return (
     <div
@@ -50,8 +62,16 @@ const Input = (({ title, children, img, value, onClickIcon, ...props }) => {
         </div>
       </div>
 
-      <div className='card__list' onClick={onBlur}>
+      <div className='card__list'>
         {focused && children}
+        <div className='list-overflow'>
+          {focused &&
+            data.filter((item) => compareString(item.name, filterValue))
+              .map((item) => {
+                return renderItem(item, hideList)
+              })
+          }
+        </div>
       </div>
     </div>
   )
