@@ -12,14 +12,15 @@ const Tag = ({ value, active, onClick }) => {
     }
 
     const handleClick = () => {
-        setIsActive(!isActive)
-        onClick(value)
+        // setIsActive(!isActive)
+        onClick(!active)
     }
+    console.log(isActive)
 
     return (
         <div
             onClick={handleClick}
-            className={`semester ${isActive ? 'active' : 'disable'} `}
+            className={`semester ${active ? 'active' : 'disable'} `}
         >
             <span className=''>{value}</span>
         </div>

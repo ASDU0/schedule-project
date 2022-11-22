@@ -8,7 +8,11 @@ import './styles.css'
 
 import ALLCOURSES from '../../courses.json'
 import ALLSCHOOLS from '../../schools.json'
-
+const compareString = (value, filter) => {
+  filter = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  return value.includes(filter)
+}
 const Sidebar = () => {
   const [searchSchool, setSearchSchool] = useState({
     id: '',
@@ -25,12 +29,20 @@ const Sidebar = () => {
 
   const [allCourses, setAllCourses] = useState([])
   const [selectedCourses, setSelectedCourses] = useState([])
+  const [selectedSemesters, setSelectedSemesters] = useState({})
 
-  const filterBySemester = () => {
-    // allCourses = allCourses.filter((course) => {
-    //   return course.semester === semester
-    // })
+  const filterBySemester = (data) => {
+    const semesters = SEMESTERS.filter(name => selectedSemesters[name] ? name : null)
+    // console.log({semesters})
+    if (semesters.length === 0) return data
+    return data.filter(course => semesters.includes(course.semester) ? course : null)
   }
+
+  const filterByName = (data, filterValue) => {
+    return data.filter((item) => compareString(item.name, filterValue))
+
+  }
+
   const onClickSelectSchool = (school) => {
     //CALL API
     setAllCourses(ALLCOURSES.filter((course) => course.career == school.id))
@@ -66,9 +78,11 @@ const Sidebar = () => {
   const selectCourse = (course) => {
     setSelectedCourses([...selectedCourses, course])
     setAllCourses(allCourses.filter((c) => c.id !== course.id))
+    setSelectedSemesters({})
     setSearchCourse('')
   }
-  console.log(searchSchool)
+
+  console.log(selectedSemesters)
   return (
     <div className='sidebar'>
       <div>
@@ -78,6 +92,10 @@ const Sidebar = () => {
           value={searchSchool.name}
           placeholder={schools.find((school) => school.id === searchSchool.id)?.name || 'Buscar escuela'}
           filterValue={searchSchool.name}
+          filters={[{
+            filter: filterByName,
+            filterValue: searchSchool.name
+          }]}
           img={searchSchool.img && <img src={searchSchool.img} />}
           data={schools}
           onClickIcon={resetStates}
@@ -99,6 +117,14 @@ const Sidebar = () => {
           onChange={(e) => setSearchCourse(e.target.value)}
           value={searchCourse}
           filterValue={searchCourse}
+          filterBySemester={selectedSemesters}
+          filters={[
+
+            {
+              filter: filterBySemester,
+              filterValue: selectedSemesters
+            }
+          ]}
           data={allCourses}
           onClickIcon={() => setSearchCourse('')}
           children={
@@ -108,8 +134,8 @@ const Sidebar = () => {
               {
                 SEMESTERS.map((semester) =>
                   <Tag
-                    // onClick={(value) => filterBySemester(value)}
-                    active={false}
+                    onClick={(flag) => setSelectedSemesters({ ...selectedSemesters, [semester]: !selectedSemesters[semester] })}
+                    active={selectedSemesters[semester] ?? false}
                     value={semester}
                   />
                 )

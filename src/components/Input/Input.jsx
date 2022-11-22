@@ -10,14 +10,27 @@ const compareString = (value, filter) => {
   return value.includes(filter)
 }
 
-const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, data, renderItem, children, ...props }) => {
+const Input = (({ title, img, value, onClickIcon, filterValue, filterBySemester = [], filters, functionFilter, data, renderItem, children, ...props }) => {
   const inputRef = useRef(null)
   const listRef = useRef(null)
 
   const [focused, setFocused] = useState(false)
   const onFocus = () => { setFocused(true) }
   const onBlur = () => { setFocused(false) }
+  filters.map(({ filter, filterValue }) => {
+    data = filter(data, filterValue)
+  })
 
+  const handleClick = () => {
+    onClickIcon()
+    inputRef.current.focus()
+  }
+
+  const hideList = () => {
+    if (focused) {
+      onBlur()
+    }
+  }
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (listRef.current && !listRef.current.contains(e.target)) {
@@ -29,16 +42,7 @@ const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, d
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
-  const handleClick = () => {
-    onClickIcon()
-    inputRef.current.focus()
-  }
-
-  const hideList = () => {
-    if (focused) {
-      onBlur()
-    }
-  }
+  // console.log(data)
   return (
     <div
       className='card-search'
@@ -66,10 +70,14 @@ const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, d
         {focused && children}
         <div className='list-overflow'>
           {focused &&
-            data.filter((item) => compareString(item.name, filterValue))
-              .map((item) => {
-                return renderItem(item, hideList)
-              })
+            data.map((item) => {
+              return renderItem(item, hideList)
+            })
+
+            // data.filter((item) => compareString(item.name, filterValue))
+            //   .map((item) => {
+            //     return renderItem(item, hideList)
+            //   })
           }
         </div>
       </div>
