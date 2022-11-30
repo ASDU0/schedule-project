@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CardSchool from '../CardSchool/CardSchool'
 import CourseCard from '../CourseCard'
 import CourseList from '../CourseList'
@@ -7,7 +7,7 @@ import Tag from '../Tag'
 import './styles.css'
 
 import ALLCOURSES from '../../courses.json'
-import ALLSCHOOLS from '../../schools.json'
+const API_URL = 'http://localhost:4000/api'
 
 const Sidebar = () => {
   const [searchSchool, setSearchSchool] = useState({
@@ -17,32 +17,35 @@ const Sidebar = () => {
   })
   const [searchCourse, setSearchCourse] = useState('')
 
-  const selectSchool = ({ id, name, img }) => {
-    setSearchSchool({ id, name, img })
-  }
-  const SEMESTERS = ['0', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
-  const [schools, setSchools] = useState(ALLSCHOOLS)
+  const [schools, setSchools] = useState([])
 
   const [allCourses, setAllCourses] = useState([])
   const [selectedCourses, setSelectedCourses] = useState([])
 
-  const filterBySemester = () => {
-    // allCourses = allCourses.filter((course) => {
-    //   return course.semester === semester
-    // })
-  }
+  const SEMESTERS = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
   const onClickSelectSchool = (school) => {
     //CALL API
-    setAllCourses(ALLCOURSES.filter((course) => course.career == school.id))
+    getCoursesByCareer(school.id)
     setSearchSchool(school)
     setSelectedCourses([])
     setSearchCourse('')
+  }
+  const getCoursesByCareer = (id) => {
+    fetch(`${API_URL}/courses/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) setAllCourses(data.courses)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const removeCourse = (idCourse) => {
     let courseFind = {}
     const filterSelectedCourses = selectedCourses.filter((course) => {
-      if (course.id === idCourse) {
+      if (course._id === idCourse) {
         courseFind = course
       } else {
         return course
@@ -65,10 +68,21 @@ const Sidebar = () => {
   }
   const selectCourse = (course) => {
     setSelectedCourses([...selectedCourses, course])
-    setAllCourses(allCourses.filter((c) => c.id !== course.id))
+    setAllCourses(allCourses.filter((c) => c._id !== course._id))
     setSearchCourse('')
   }
-  console.log(searchSchool)
+
+  useEffect(() => {
+    fetch(`${API_URL}/careers`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) setSchools(data.careers)
+      })
+      .catch(err =>
+        console.log(err)
+      )
+  }, [])
+  console.log(allCourses)
   return (
     <div className='sidebar'>
       <div>
@@ -84,10 +98,10 @@ const Sidebar = () => {
           renderItem={(item, hideList) => {
             return (
               <CardSchool
-                key={item.id}
-                id={item.id}
+                key={item._id}
+                id={item._id}
                 name={item.name}
-                logo={item.logo}
+                logo={item.img}
                 hideList={hideList}
                 onClick={(school) => { onClickSelectSchool(school) }}
               />
@@ -119,9 +133,11 @@ const Sidebar = () => {
           renderItem={(item, hideList) => {
             return (
               <CourseCard
-                key={item.id}
+                key={item._id}
                 name={item.name}
+                code={item.course}
                 semester={item.semester}
+                category={item.cat}
                 hideList={hideList}
                 onClick={() => { selectCourse(item) }}
                 flag={true}
@@ -134,7 +150,6 @@ const Sidebar = () => {
       <CourseList
         data={selectedCourses}
         shadow={false}
-        key={Math.random()}
         onClickIcon={(idCourse) => removeCourse(idCourse)}
       />
     </div >

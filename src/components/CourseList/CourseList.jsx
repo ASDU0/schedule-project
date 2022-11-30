@@ -18,14 +18,16 @@ const CourseList = ({ data, filterValue = '', onClickIcon, shadow = true }) => {
             .map((course, idx) => {
               return (
                 <div
-                  key={idx}
+                  key={course._id}
                 >
                   <CourseCard
-                    id={course.id}
+                    id={course._id}
                     name={course.name}
+                    code={course.course}
                     semester={course.semester}
+                    category={course.cat}
                     flag={shadow}
-                    onClickIcon={onClickIcon} />
+                    onClickIcon={()=>onClickIcon(course._id)} />
                 </div>
               )
             })

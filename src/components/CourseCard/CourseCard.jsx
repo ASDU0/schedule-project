@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 import './styles.css'
 import Portal from '../Portal'
 
-const CourseCard = ({ id, name, semester, flag, hideList, onClick, onClickIcon }) => {
+const CourseCard = ({ id, name, code, semester,category, flag, hideList, onClick, onClickIcon }) => {
   const [showDetails, setShowDetails] = useState(false)
   const [coordinates, setCoordinates] = useState({ top: 0, left: 0 })
   const infoRef = useRef(null)
@@ -46,13 +46,13 @@ const CourseCard = ({ id, name, semester, flag, hideList, onClick, onClickIcon }
             />
         }
       </div>
-      <p className='course-card__text' >IN775</p>
+      <p className='course-card__text' >{code}</p>
       <div className='course-card__labels'>
         <div className='semester'>
           <span className='course-card__text bold'>{semester}</span>
         </div>
         <div className='category'>
-          <span className='course-card__text bold'>OESS</span>
+          <span className='course-card__text bold'>{category}</span>
         </div>
       </div>
       <Portal>
