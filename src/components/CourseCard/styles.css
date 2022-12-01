@@ -4,6 +4,7 @@
     position: relative;
     padding: 5px;
     margin-bottom: 10px;
+    color: dimgray;
 }
 
 .course-card__header {
@@ -29,6 +30,10 @@
     margin-right: 5px;
 }
 
+.course-card__icons {
+    flex-shrink: 0;
+}
+
 .course-card__labels .semester {
     width: 35px;
     background-color: #2185D0;
@@ -36,6 +41,8 @@
 
 .course-card__labels .category {
     padding: 0 8px;
+    display: flex;
+    align-items: center;
     background-color: #21BA45;
 }
 
@@ -51,7 +58,10 @@
 .info:hover {
     fill: #10182f;
 }
-
+.trash:hover {
+    fill: #F44336;
+    cursor: pointer;
+}
 
 
 

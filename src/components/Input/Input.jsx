@@ -4,20 +4,29 @@ import { ReactComponent as SearchIcon } from '../../assets/search_icon.svg'
 
 import './Input.css'
 
-const compareString = (value, filter) => {
-  filter = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
-  value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()
-  return value.includes(filter)
-}
 
-const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, data, renderItem, children, ...props }) => {
+
+const Input = (({ title, img, value, onClickIcon, filterValue, filters, resetValues = () => null, data, renderItem, children, ...props }) => {
   const inputRef = useRef(null)
   const listRef = useRef(null)
 
   const [focused, setFocused] = useState(false)
   const onFocus = () => { setFocused(true) }
-  const onBlur = () => { setFocused(false) }
+  const onBlur = () => { setFocused(false); resetValues() }
+  filters.map(({ filter, filterValue }) => {
+    data = filter(data, filterValue)
+  })
 
+  const handleClick = () => {
+    onClickIcon()
+    inputRef.current.focus()
+  }
+
+  const hideList = () => {
+    if (focused) {
+      onBlur()
+    }
+  }
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (listRef.current && !listRef.current.contains(e.target)) {
@@ -29,16 +38,6 @@ const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, d
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
-  const handleClick = () => {
-    onClickIcon()
-    inputRef.current.focus()
-  }
-
-  const hideList = () => {
-    if (focused) {
-      onBlur()
-    }
-  }
   return (
     <div
       className='card-search'
@@ -62,14 +61,13 @@ const Input = (({ title, img, value, onClickIcon, filterValue, functionFilter, d
         </div>
       </div>
 
-      <div className='card__list'>
+      <div className='card__list' style={{ visibility: focused ? 'visible' : 'hidden' }}>
         {focused && children}
         <div className='list-overflow'>
           {focused &&
-            data.filter((item) => compareString(item.name, filterValue))
-              .map((item) => {
-                return renderItem(item, hideList)
-              })
+            data.map((item) => {
+              return renderItem(item, hideList)
+            })
           }
         </div>
       </div>

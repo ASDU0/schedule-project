@@ -5,6 +5,7 @@
     justify-content: start;
     align-items: center;
     cursor: default;
+    color:dimgray;
 }
 
 .card__school:hover {

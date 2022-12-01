@@ -6,7 +6,8 @@
 }
 
 .card__title {
-    color: #777777;
+    /* color: #777777; */
+    color: #444444;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -58,19 +59,17 @@ input {
     font-size: 15px;
 }
 
-
-
 .card__list {
     position: absolute;
     width: 100%;
     height: auto;
     margin-top: 0.5rem;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px #d4d4d4;
     border-radius: 10px;
     z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2 20px rgba(0, 0, 0, 0.1);
 }
-
 
 .list-overflow {
     overflow-y: auto;

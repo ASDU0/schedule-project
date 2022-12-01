@@ -1,4 +1,9 @@
+.app {
+    display: flex
+}
+
 .sidebar {
+    flex-shrink: 0;
     width: 400px;
     height: 100%;
     padding: 10px;

@@ -4,7 +4,6 @@ import { useState } from 'react'
 import './Tag.css'
 
 const Tag = ({ value, active, onClick }) => {
-    const [isActive, setIsActive] = useState(active)
     if (typeof active === 'undefined') {
         return <div className='semester'>
             <span className=''>{value}</span>
@@ -12,14 +11,14 @@ const Tag = ({ value, active, onClick }) => {
     }
 
     const handleClick = () => {
-        setIsActive(!isActive)
-        onClick(value)
+        // setIsActive(!isActive)
+        onClick(!active)
     }
 
     return (
         <div
             onClick={handleClick}
-            className={`semester ${isActive ? 'active' : 'disable'} `}
+            className={`semester ${active ? 'active' : 'disable'} `}
         >
             <span className=''>{value}</span>
         </div>
