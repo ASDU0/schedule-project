@@ -7,7 +7,7 @@ import Input from '../Input/Input'
 import Tag from '../Tag'
 import './styles.css'
 
-const API_URL = 'http://localhost:4000/api'
+const API_URL = 'https://schedule-backend.onrender.com/api'
 
 const compareString = (value, filter) => {
   filter = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase()

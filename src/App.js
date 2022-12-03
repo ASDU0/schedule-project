@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import './App.css';
 import Sidebar from './components/Sidebar'
 import { Schedule } from 'me-schedule-days'
 
