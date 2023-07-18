@@ -1,0 +1,183 @@
+[
+    {
+        "name": "Arquitectura",
+        "logo": "http://at.unsaac.edu.pe/images/logo-placeholder.png"
+    },
+    {
+        "name": "Ingeniería Civil",
+        "logo": "http://ci.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Química",
+        "logo": "https://i.ibb.co/NSVWJ6f/quimica.png"
+    },
+    {
+        "name": "Física",
+        "logo": "http://fi.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Matemática",
+        "logo": "http://at.unsaac.edu.pe/images/logo-placeholder.png"
+    },
+    {
+        "name": "Biología",
+        "logo": "http://bi.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ciencias Administrativas",
+        "logo": "http://ae.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Contabilidad",
+        "logo": "https://i.ibb.co/fNV4Y8M/contabilidad.png"
+    },
+    {
+        "name": "Economía",
+        "logo": "https://i.ibb.co/P5FJHYD/economia.png"
+    },
+    {
+        "name": "Turismo",
+        "logo": "https://i.ibb.co/5xm0xMP/turismo.png"
+    },
+    {
+        "name": "EcoTurismo - Quillabamba",
+        "logo": "https://i.ibb.co/5xm0xMP/turismo.png"
+    },
+    {
+        "name": "Agronomía",
+        "logo": "http://ao.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Zootecnia",
+        "logo": "http://zo.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ingeniería Forestal - Puerto Maldonado",
+        "logo": "https://i.ibb.co/4VqkTt6/forestal.png"
+    },
+    {
+        "name": "Ingeniería Agropecuaria - Andahuaylas",
+        "logo": "https://i.ibb.co/z68bxXX/aagropecuaria.png"
+    },
+    {
+        "name": "Ingeniería Agropecuaria - Santo Tomas",
+        "logo": "https://i.ibb.co/z68bxXX/aagropecuaria.png"
+    },
+    {
+        "name": "Medicina Veterinaria - Sicuani",
+        "logo": "https://i.ibb.co/MDrvPKx/veterinaria-sicuani.png"
+    },
+    {
+        "name": "Medicina Veterinaria - Espina",
+        "logo": "https://i.ibb.co/MDrvPKx/veterinaria-sicuani.png"
+    },
+    {
+        "name": "Medicina Humana",
+        "logo": "https://i.ibb.co/80B4T3b/medicina.png"
+    },
+    {
+        "name": "Odontología",
+        "logo": "https://i.ibb.co/GJbZSrt/odontologia.png"
+    },
+    {
+        "name": "Farmacia y Bioquímica",
+        "logo": "https://i.ibb.co/cN7WJjW/farmacia-bioquimica.png"
+    },
+    {
+        "name": "Enfermería",
+        "logo": "http://en.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Obstetricia - Andahuayla",
+        "logo": "https://i.ibb.co/JCmGW0P/obstetricia.png"
+    },
+    {
+        "name": "Derecho",
+        "logo": "http://dr.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Antropología",
+        "logo": "https://i.ibb.co/86tsHj5/antropologia.png"
+    },
+    {
+        "name": "Arqueología",
+        "logo": "http://aq.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Historia",
+        "logo": "https://i.ibb.co/m4f3yHF/historia.png"
+    },
+    {
+        "name": "Psicología",
+        "logo": "https://i.ibb.co/qNdMfP2/psicologia.png"
+    },
+    {
+        "name": "Filosofía",
+        "logo": "https://i.ibb.co/gvTHZ1h/filosofia.png"
+    },
+    {
+        "name": "Educación Secundari",
+        "logo": "http://eu.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Educación Primari",
+        "logo": "http://eu.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Educación - FILIAL CANA",
+        "logo": "http://ey.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Educación - FILIAL ESPINA",
+        "logo": "http://ee.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ciencias de la Comunicación",
+        "logo": "https://i.ibb.co/C8W3KPy/ciencias-comunicacion.png"
+    },
+    {
+        "name": "Ingeniería Química",
+        "logo": "http://iq.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ingeniería Petroquímica",
+        "logo": "https://i.ibb.co/yppZYgg/petroquimica.png"
+    },
+    {
+        "name": "Ingeniería Agroindustrial - Sicuani",
+        "logo": "http://fia.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Industrias Alimentaria",
+        "logo": "http://at.unsaac.edu.pe/images/logo-placeholder.png"
+    },
+    {
+        "name": "Ingeniería Geológica",
+        "logo": "http://go.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ingeniería de Minas",
+        "logo": "http://mi.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ingeniería Metalúrgica",
+        "logo": "http://mt.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ingeniería Eléctrica",
+        "logo": "http://ie.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "name": "Ingeniería Electrónica",
+        "logo": "https://i.ibb.co/RpdHPYm/electronica.png"
+    },
+    {
+        "name": "Ingeniería Mecánica",
+        "logo": "http://mc.unsaac.edu.pe/storage/entidad/logo.png"
+    },
+    {
+        "id": "INFO0001",
+        "name": "Ingeniería Informática y de Sistemas",
+        "logo": "http://in.unsaac.edu.pe/storage/entidad/logo.png"
+    }
+]
