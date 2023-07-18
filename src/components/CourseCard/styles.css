@@ -1,0 +1,85 @@
+.course-card {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: dimgray;
+}
+
+.course-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-card:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.course-card__labels {
+    display: flex;
+    color: white;
+    text-align: center;
+}
+
+.course-card__labels div {
+    height: 24px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.course-card__icons {
+    flex-shrink: 0;
+}
+
+.course-card__labels .semester {
+    width: 35px;
+    background-color: #2185D0;
+}
+
+.course-card__labels .category {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    background-color: #21BA45;
+}
+
+.course-card__text {
+    font-size: 14px;
+    padding-bottom: 2px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.info:hover {
+    fill: #10182f;
+}
+.trash:hover {
+    fill: #F44336;
+    cursor: pointer;
+}
+
+
+
+
+.details-schedule {
+    background-color: #10182f;
+    border-radius: 5px;
+    padding: .5rem;
+    color: white;
+    font-size: 14px;
+    width: auto;
+    height: auto;
+    position: fixed;
+    z-index: 999999;
+    /* top: 180px; */
+    /* left: 410px; */
+}
+
+.details-schedule .bold {
+    font-weight: 700;
+}

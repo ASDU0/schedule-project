@@ -1,0 +1,614 @@
+[
+    {
+        "name": "Programacion I",
+        "id": "PROG1",
+        "credits": 4,
+        "semester": "I",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "08:00",
+                    "end": "10:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion II",
+        "id": "PROG2",
+        "credits": 4,
+        "semester": "II",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion III",
+        "id": "PROG3",
+        "credits": 4,
+        "semester": "III",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "12:00",
+                    "end": "14:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion IV",
+        "id": "PROG4",
+        "credits": 4,
+        "semester": "IV",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion V",
+        "id": "PROG5",
+        "credits": 4,
+        "semester": "V",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "16:00",
+                    "end": "18:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "16:00",
+                    "end": "18:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "16:00",
+                    "end": "18:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "16:00",
+                    "end": "18:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "16:00",
+                    "end": "18:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "16:00",
+                    "end": "18:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion VI",
+        "id": "PROG6",
+        "credits": 4,
+        "semester": "VI",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion VII",
+        "id": "PROG7",
+        "credits": 4,
+        "semester": "VII",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion VIII",
+        "id": "PROG8",
+        "credits": 4,
+        "semester": "VIII",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion IX",
+        "id": "PROG9",
+        "credits": 4,
+        "semester": "IX",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion X",
+        "id": "PROG10",
+        "credits": 4,
+        "semester": "X",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion XI",
+        "id": "PROG11",
+        "credits": 4,
+        "semester": "XI",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Programacion XII",
+        "id": "PROG12",
+        "credits": 4,
+        "semester": "XII",
+        "career": "INFO0001",
+        "days": {
+            "monday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "tuesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "wednesday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "thursday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "friday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ],
+            "saturday": [
+                {
+                    "start": "18:00",
+                    "end": "20:00",
+                    "room": "Aula 1"
+                }
+            ]
+        }
+    }
+]
