@@ -39,7 +39,7 @@ const Sidebar = () => {
   const [selectedSemesters, setSelectedSemesters] = useState({ 0: false })
   const SEMESTERS = [...new Set(allCourses.map(({ semester }) => semester))]
     .filter(s => s.length > 0)
-    // .sort()
+  // .sort()
 
   const filterBySemester = (data) => {
     const semesters = SEMESTERS.filter(name => selectedSemesters[name] ? name : null)
