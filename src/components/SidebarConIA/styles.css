@@ -1,0 +1,120 @@
+.app {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+.sidebar {
+    flex-shrink: 0;
+    width: 400px;
+    height: 100%;
+    padding: 10px;
+    /* border: 1px solid #D4D4D4; */
+    border-radius: 5px;
+    position: relative;
+}
+
+.menu-schools {
+    width: 100%;
+    /* height: 480px; */
+    /* min-height: 50px; */
+    /* max-height: 480px; */
+    position: absolute;
+    top: 90px;
+    left: 0;
+    z-index: 1;
+}
+
+.menu-courses {
+    width: 100%;
+    position: absolute;
+    top: 185px;
+    left: 0;
+    z-index: 1;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.list-semestres-app {
+    display: flex;
+    gap: 6px;
+}
+
+.mt-5-app {
+    margin-top: 10px !important;
+}
+
+.turno-app {
+    border: 1px solid #D4D4D4;
+    border-radius: 13px;
+    padding: 5px 12px;
+    font-size: medium;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.turno-app:hover {
+    background-color: #F5F5F5;
+}
+
+.active-turno-app {
+    border: 1px solid #D4D4D4;
+    border-radius: 13px;
+    padding: 5px 12px;
+    font-size: medium;
+    cursor: pointer;
+    background-color: rgb(17, 104, 202);
+    color: #D4D4D4;
+    transition: background-color 0.3s;
+}
+
+.generate-with-ia-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 1px solid #D4D4D4;
+    border-radius: 13px;
+    padding: 8px 10px;
+    /* Backbround with granade modern and gradient */
+    background: linear-gradient(90deg, rgba(17, 104, 202, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    color: #D4D4D4;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.generate-with-ia-app:hover {
+    background: linear-gradient(90deg, rgba(17, 104, 202, .90) 0%, rgba(0, 0, 0, .90) 100%);
+    color: #D4D4D1;
+}
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .menu-schools {
+        top: 50px;
+    }
+
+    .menu-courses {
+        top: 145px;
+    }
+
+    .app {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-direction: column;
+    }
+}

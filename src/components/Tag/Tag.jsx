@@ -18,7 +18,7 @@ const Tag = ({ value, active, onClick }) => {
     return (
         <div
             onClick={handleClick}
-            className={`semester ${active ? 'active' : 'disable'} `}
+            className={`semester ${active ? 'active' : 'disable'} cursor-pointer-app`}
         >
             <span className=''>{value}</span>
         </div>

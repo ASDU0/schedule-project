@@ -21,3 +21,7 @@
 .disable {
     background-color: #D0D0D0;
 }
+
+.cursor-pointer-app {
+    cursor: pointer;
+}
