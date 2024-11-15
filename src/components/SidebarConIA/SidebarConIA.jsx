@@ -5,8 +5,8 @@ import { Schedule } from "me-schedule-days";
 import Tag from "../Tag";
 import './styles.css'
 
-// const API_URL = 'https://schedule-backend.onrender.com/api'
-const API_URL = 'http://localhost:3000/api'
+const API_URL = 'https://schedule-backend.onrender.com/api'
+// const API_URL = 'http://localhost:3000/api'
 
 const turnos = [
   {
@@ -81,6 +81,15 @@ const SidebarConIa = () => {
     }
   }
 
+  const randomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
   const getScheduleOptimizeBySemestre = () => {
     const carrera = searchSchool.id
     if (!carrera) {
@@ -109,14 +118,22 @@ const SidebarConIa = () => {
       .then(res => res.json())
       .then(data => {
         if (data.ok) {
-          setSelectedCourses(data.data)
+          setSelectedCourses([])
+          data.data.forEach((element, index) => {
+            setTimeout(() => {
+              const color = randomColor()
+              // Usa una función para actualizar el estado y asegurar que sea inmutable
+              setSelectedCourses(prevCourses => [...prevCourses, { ...element, color: randomColor() }]);
+            }, 500 * index); // Multiplica por el índice para añadir un retraso incremental
+          });
         }
-      }
-      )
+      })
       .catch(err => {
         console.log(err)
       })
   }
+
+ 
 
   const getScheduleGenerateBySemestre = () => {
     const carrera = searchSchool.id
@@ -145,11 +162,18 @@ const SidebarConIa = () => {
       .then(res => res.json())
       .then(data => {
         if (data.ok) {
+          setSelectedCourses([])
           if (data.data.length === 0) {
             console.log('No se pudo generar el horario')
             return
           }
-          setSelectedCourses(data.data[0])
+          data.data[0].forEach((element, index) => {
+            setTimeout(() => {
+              const color = randomColor()
+              // Usa una función para actualizar el estado y asegurar que sea inmutable
+              setSelectedCourses(prevCourses => [...prevCourses, { ...element, color: randomColor() }]);
+            }, 500 * index); // Multiplica por el índice para añadir un retraso incremental
+          });
         }
       }
       )
